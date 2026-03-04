@@ -1,0 +1,62 @@
+/* ── Reset & base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary:       #00796B;
+  --color-primary-dark:  #004D40;
+  --color-primary-light: #B2DFDB;
+  --color-accent:        #FF8F00;
+  --color-surface:       #FFFFFF;
+  --color-surface-alt:   #F5F5F5;
+  --color-border:        #E0E0E0;
+  --color-text:          #212121;
+  --color-text-secondary:#616161;
+  --color-text-inverse:  #FFFFFF;
+  --color-success:       #2E7D32;
+  --color-warning:       #E65100;
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.10), 0 2px 4px rgba(0,0,0,.06);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+               'Helvetica Neue', Arial, sans-serif;
+
+  --max-content: 860px;
+  --sidebar-w:   240px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-surface-alt);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
