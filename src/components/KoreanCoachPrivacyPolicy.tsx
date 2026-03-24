@@ -15,6 +15,7 @@ const TOC_ITEMS = [
   { id: 'local-data',  label: 'Locally Stored Data' },
   { id: 'permissions', label: 'Device Permissions' },
   { id: 'speech',      label: 'Speech Recognition' },
+  { id: 'advertising', label: 'Advertising (AdMob)' },
   { id: 'security',    label: 'Data Security' },
   { id: 'third-party', label: 'Third-Party Services' },
   { id: 'retention',   label: 'Data Retention' },
@@ -76,9 +77,9 @@ export default function KoreanCoachPrivacyPolicy() {
       {/* ── Badges ── */}
       <div className="kc-badge-row">
         <span className="kc-badge">💾 Local-First Storage</span>
-        <span className="kc-badge">🚫 No Analytics</span>
         <span className="kc-badge">🔐 No Account Required</span>
         <span className="kc-badge">🎙️ Mic for Pronunciation Only</span>
+        <span className="kc-badge">📢 Optional Rewarded Ads</span>
       </div>
 
       {/* ── Body ── */}
@@ -126,13 +127,12 @@ export default function KoreanCoachPrivacyPolicy() {
           {/* 2 */}
           <Section id="data" icon="📋" title="Information We Collect">
             <Hi v="success" icon="✅">
-              <strong>We do not collect any personal information.</strong> The App has no analytics
-              SDK, no crash-reporting backend, no advertising network, and no telemetry.
+              <strong>We do not collect personal information ourselves.</strong> The App has no
+              analytics SDK, no crash-reporting backend, and no telemetry.
             </Hi>
             <p>The App does not collect, transmit, or share:</p>
             <ul className="kc-list">
               <li>Your name, email address, or contact information</li>
-              <li>Device identifiers (IMEI, advertising ID, Android ID)</li>
               <li>Location data</li>
               <li>Usage analytics or behavioral data</li>
               <li>Crash reports or diagnostic logs</li>
@@ -141,6 +141,11 @@ export default function KoreanCoachPrivacyPolicy() {
               The name you enter during onboarding is stored <strong>locally only</strong> and used
               solely to personalise in-app greetings.
             </p>
+            <Hi v="warning" icon="⚠️">
+              The App integrates <strong>Google AdMob</strong> to display optional rewarded ads.
+              AdMob may collect your device's <strong>Advertising ID</strong> to serve relevant ads.
+              See the <a href="#advertising">Advertising section</a> below for full details.
+            </Hi>
           </Section>
 
           {/* 3 */}
@@ -231,6 +236,40 @@ export default function KoreanCoachPrivacyPolicy() {
             </Hi>
           </Section>
 
+          {/* 5b */}
+          <Section id="advertising" icon="📢" title="Advertising (Google AdMob)">
+            <Hi v="warning" icon="⚠️">
+              The App uses <strong>Google AdMob</strong> to display optional rewarded video ads.
+              Ads are never forced — you choose to watch them to support the App.
+            </Hi>
+            <p>When AdMob is active, Google may collect:</p>
+            <ul className="kc-list">
+              <li><strong>Advertising ID</strong> — a resettable device identifier used to serve relevant ads</li>
+              <li><strong>IP address</strong> — used for approximate location and fraud prevention</li>
+              <li><strong>App activity</strong> — interactions with ads (views, clicks)</li>
+              <li><strong>Device information</strong> — OS version, device type, language settings</li>
+            </ul>
+            <Hi v="info" icon="ℹ️">
+              <strong>You can opt out</strong> of personalised ads at any time:{' '}
+              Android Settings → Privacy → Ads → <em>"Opt out of Ads Personalization"</em>.
+              You can also reset your Advertising ID from the same menu.
+            </Hi>
+            <p>
+              Google's use of advertising data is governed by the{' '}
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                Google Privacy Policy
+              </a>{' '}
+              and{' '}
+              <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener noreferrer">
+                Google AdMob's data practices
+              </a>.
+            </p>
+            <Hi v="success" icon="✅">
+              Ads are <strong>non-personalised by default</strong> for users who have not consented
+              to personalised advertising. The App does not pass any personal user data to AdMob.
+            </Hi>
+          </Section>
+
           {/* 6 */}
           <Section id="security" icon="🛡️" title="Data Security">
             <ul className="kc-list">
@@ -251,9 +290,6 @@ export default function KoreanCoachPrivacyPolicy() {
 
           {/* 7 */}
           <Section id="third-party" icon="🔗" title="Third-Party Services">
-            <Hi v="success" icon="✅">
-              <strong>{APP_NAME} uses no third-party analytics, advertising, or crash-reporting SDKs.</strong>
-            </Hi>
             <p>Open-source libraries used (all on-device only):</p>
             <ul className="kc-list">
               <li><strong>Room</strong> (Google / Apache 2.0) — local database ORM</li>
@@ -261,11 +297,17 @@ export default function KoreanCoachPrivacyPolicy() {
               <li><strong>WorkManager</strong> (Google / Apache 2.0) — local notification scheduling</li>
               <li><strong>Jetpack Compose</strong> (Google / Apache 2.0) — UI framework</li>
             </ul>
-            <p>
-              <strong>Android Speech Recognition (Google)</strong> is used for pronunciation
-              scoring as described above. This is the only external service the App interacts with,
-              and only when you actively use pronunciation practice.
-            </p>
+            <p>External services used:</p>
+            <ul className="kc-list">
+              <li>
+                <strong>Android Speech Recognition (Google)</strong> — used for pronunciation
+                scoring only when you actively use pronunciation practice.
+              </li>
+              <li>
+                <strong>Google AdMob</strong> — used to display optional rewarded ads.
+                See the <a href="#advertising">Advertising section</a> for full details.
+              </li>
+            </ul>
             <p>
               This App is distributed through the{' '}
               <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer">Google Play Store</a>.
@@ -312,6 +354,14 @@ export default function KoreanCoachPrivacyPolicy() {
               <strong>not directed at children under 13</strong>. We do not knowingly collect
               personal information from children.
             </p>
+            <Hi v="info" icon="ℹ️">
+              The App's AdMob integration is configured for a <strong>general audience</strong>.
+              If you believe a child under 13 is using the App, please contact us so we can take
+              appropriate steps. Google AdMob's child-directed settings are documented in the{' '}
+              <a href="https://support.google.com/admob/answer/3248194" target="_blank" rel="noopener noreferrer">
+                AdMob Help Centre
+              </a>.
+            </Hi>
           </Section>
 
           {/* 11 */}

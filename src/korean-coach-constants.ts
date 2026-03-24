@@ -8,7 +8,7 @@ export const CONTACT_EMAIL = "sheldonlikescats@gmail.com";
 
 export const LAST_UPDATED = "March 2026";
 
-export const PACKAGE_NAME = "com.koreancoach.app";
+export const PACKAGE_NAME = "chang.sllj.koreanready";
 
 export const DEVELOPER_NAME = "Sheldon Chang";
 
